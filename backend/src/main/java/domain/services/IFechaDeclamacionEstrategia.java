@@ -5,10 +5,13 @@
  */
 package domain.services;
 
+import org.joda.time.DateTime;
+
 /**
  *
  * @author Leo
  */
 public interface IFechaDeclamacionEstrategia {
 
+    public DateTime calcularFechaDeclamacion(DateTime fechaInscripcion);
 }

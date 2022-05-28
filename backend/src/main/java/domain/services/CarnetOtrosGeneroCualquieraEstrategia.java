@@ -5,10 +5,21 @@
  */
 package domain.services;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeConstants;
+
 /**
  *
  * @author Leo
  */
-public class CarnetOtrosGeneroCualquieraEstrategia {
+public class CarnetOtrosGeneroCualquieraEstrategia implements IFechaDeclamacionEstrategia {
 
+    @Override
+    public DateTime calcularFechaDeclamacion(DateTime fechaInscripcion) {
+        if (fechaInscripcion.getDayOfWeek() <= DateTimeConstants.FRIDAY) {
+            return fechaInscripcion.withDayOfWeek(DateTimeConstants.FRIDAY);
+        } else {
+            return fechaInscripcion.plusWeeks(1).withDayOfWeek(DateTimeConstants.FRIDAY);
+        }
+    }
 }

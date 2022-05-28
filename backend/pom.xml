@@ -18,6 +18,24 @@
     
     <dependencies>
         <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>${jakartaee}</version>
@@ -44,9 +62,26 @@
             <artifactId>jaxrs-cors</artifactId>
             <version>0.0.2</version>
             <scope>compile</scope>
-            
         </dependency> 
+             <dependency>
+  <groupId>joda-time</groupId>
+  <artifactId>joda-time</artifactId>
+  <version>2.10.14</version>
+</dependency>  
+<!-- https://mvnrepository.com/artifact/com.github.mvallim/java-fluent-validator -->
+<dependency>
+    <groupId>com.github.mvallim</groupId>
+    <artifactId>java-fluent-validator</artifactId>
+    <version>1.10.0</version>
+</dependency>
+<dependency>
+    <groupId>io.vavr</groupId>
+    <artifactId>vavr</artifactId>
+    <version>0.9.0</version>
+</dependency> 
+    
     </dependencies>
+    
     
      <build>
         <plugins>
@@ -95,6 +130,16 @@
                     </execution>
                 </executions>
             </plugin>
+             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.22.0</version>
+            </plugin> 
         </plugins>
     </build>
 </project>
