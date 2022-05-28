@@ -5,10 +5,17 @@
  */
 package application.repository;
 
+import application.DTO.InscripcionDTO;
+import domain.Inscripcion;
+import java.util.List;
+
 /**
  *
  * @author Leo
  */
 public interface IInscripcionRepository {
 
+    public void registrarInscripcion(Inscripcion inscripcion);
+
+    public List<InscripcionDTO> getAllInscripciones();
 }

@@ -9,6 +9,7 @@ import domain.services.Carnet1GeneroDramaticoEstrategia;
 import domain.services.Carnet3GeneroEpicoEstrategia;
 import domain.services.CarnetOtrosGeneroCualquieraEstrategia;
 import domain.services.IFechaDeclamacionEstrategia;
+import lombok.Getter;
 import org.joda.time.DateTime;
 
 /**
@@ -17,16 +18,20 @@ import org.joda.time.DateTime;
  */
 public class Inscripcion {
 
-    private Estudiante estudiante;
-    private String generoPoesia;
-    private DateTime fechaInscripcion;
-    private DateTime fechaDeclamacion;
+    @Getter
+    Estudiante estudiante;
+    @Getter
+    String generoPoesia;
+    @Getter
+    DateTime fechaInscripcion;
+    @Getter
+    DateTime fechaDeclamacion;
 
     public Inscripcion(Estudiante estudiante, String generoPoesia) {
         this.estudiante = estudiante;
         this.generoPoesia = generoPoesia;
         this.fechaInscripcion = new DateTime();
-        this.fechaDeclamacion = this.calcularFechaDeclamacion(this.estudiante.carnet, this.generoPoesia);
+        this.fechaDeclamacion = this.calcularFechaDeclamacion(this.estudiante.getCarnet(), this.generoPoesia);
     }
 
     DateTime calcularFechaDeclamacion(String carnet, String generoPoesia) {

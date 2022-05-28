@@ -5,24 +5,16 @@
  */
 package application.DTO;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.joda.time.DateTime;
 
 /**
  *
  * @author Leo
  */
-@AllArgsConstructor
-public class InscripcionViewDTO {
+public class InscripcionDTO {
 
     @Getter
-    private EstudianteDTO estudianteDTO;
+    private EstudianteDTO estudiante;
     @Getter
     private String generoPoesia;
-    @Getter
-    private DateTime fechaInscripcion;
-    @Getter
-    private DateTime fechaDeclamacion;
-
 }

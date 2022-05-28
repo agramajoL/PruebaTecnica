@@ -16,7 +16,7 @@ public class CarnetOtrosGeneroCualquieraEstrategia implements IFechaDeclamacionE
 
     @Override
     public DateTime calcularFechaDeclamacion(DateTime fechaInscripcion) {
-        if (fechaInscripcion.getDayOfWeek() <= DateTimeConstants.FRIDAY) {
+        if (fechaInscripcion.getDayOfWeek() < DateTimeConstants.FRIDAY) {
             return fechaInscripcion.withDayOfWeek(DateTimeConstants.FRIDAY);
         } else {
             return fechaInscripcion.plusWeeks(1).withDayOfWeek(DateTimeConstants.FRIDAY);

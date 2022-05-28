@@ -59,6 +59,8 @@ public class EstudianteValidator extends AbstractValidator<Estudiante> {
             .withMessage("Debe ser mayor a 17 anios.");
     }
 
+    //Si es mayor de edad es regla del dominio pero no se debe permitir crear
+    //modelos del dominio invalidos.
     private boolean esMayorDeEdad(final DateTime fechaNacimiento) {
         int yearNacimiento = fechaNacimiento.getYear();
         int yearActual = new DateTime().getYear();
