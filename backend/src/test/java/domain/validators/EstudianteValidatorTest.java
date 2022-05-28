@@ -14,7 +14,6 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.not;
-import org.joda.time.DateTime;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
@@ -33,7 +32,8 @@ public class EstudianteValidatorTest {
      */
     @Test
     public void estudianteSeaValido() {
-        Estudiante estudianteValido = new Estudiante("Ab5ee1", "Alvaro Gramajo", "direccion tal", "Masculino", new DateTime(1998, 1, 13, 0, 0), "Ingenieria en Sistemas");
+        Estudiante estudianteValido = new Estudiante("Ab5ee1", "Alvaro Gramajo", "direccion tal", "Masculino", "13/01/1998", "Ingenieria en Sistemas", 12344321);
+
         EstudianteValidator ev = new EstudianteValidator();
         ValidationResult result = ev.validate(estudianteValido);
         assertTrue(result.isValid());
@@ -42,7 +42,7 @@ public class EstudianteValidatorTest {
 
     @Test
     public void carnetNoContengaCaracteresNoAlfanumericos() {
-        Estudiante estudianteValido = new Estudiante("Ab5e01", "Alvaro Gramajo", "direccion tal", "Masculino", new DateTime(1998, 1, 13, 0, 0), "Ingenieria en Sistemas");
+        Estudiante estudianteValido = new Estudiante("Ab5e01", "Alvaro Gramajo", "direccion tal", "Masculino", "13/01/1998", "Ingenieria en Sistemas", 12344321);
         EstudianteValidator ev = new EstudianteValidator();
         ValidationResult result = ev.validate(estudianteValido);
         assertFalse(result.isValid());
@@ -56,7 +56,8 @@ public class EstudianteValidatorTest {
 
     @Test
     public void estudianteDebeSerMayorDeEdad() {
-        Estudiante estudianteValido = new Estudiante("Ab5e01", "Alvaro Gramajo", "direccion tal", "Masculino", new DateTime(2005, 5, 27, 0, 0), "Ingenieria en Sistemas");
+        Estudiante estudianteValido = new Estudiante("Ab5e01", "Alvaro Gramajo", "direccion tal", "Masculino", "27/05/2005", "Ingenieria en Sistemas", 12344321);
+
         EstudianteValidator ev = new EstudianteValidator();
         ValidationResult result = ev.validate(estudianteValido);
         assertFalse(result.isValid());

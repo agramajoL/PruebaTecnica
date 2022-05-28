@@ -7,7 +7,6 @@ package application.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.joda.time.DateTime;
 
 /**
  *
@@ -25,8 +24,9 @@ public class EstudianteDTO {
     @Getter
     private String genero;
     @Getter
-    private DateTime fechaNacimiento;
+    private String fechaNacimiento;
     @Getter
     private String carrera;
-
+    @Getter
+    private int telefono;
 }

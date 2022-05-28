@@ -13,9 +13,13 @@ import br.com.fluentvalidator.context.Error;
 import infraestructure.InscripcionRepositoryOracle;
 import io.vavr.control.Either;
 import java.util.Collection;
+import java.util.List;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
@@ -28,16 +32,26 @@ public class InscripcionController {
     private final IInscripcionRepository repository = new InscripcionRepositoryOracle();
 
     @POST()
-    @Produces("Application/JSON")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response registrarInscripcionCommand(RegistrarInscripcionCommand command) {
         RegistrarInscripcionCommandHandler handler = new RegistrarInscripcionCommandHandler(repository);
         Either<InscripcionViewDTO, Collection<Error>> resultado = handler.handleCommand(command);
         if (resultado.isRight()) {
             return Response
                 .status(Response.Status.BAD_REQUEST)
-                .entity(resultado)
+                .entity(resultado.get())
                 .build();
         }
+        return Response
+            .status(Response.Status.CREATED)
+            .entity(resultado.getLeft())
+            .build();
+    }
+
+    @GET()
+    public Response listarTodasInscripcionesQuery() {
+        List<InscripcionViewDTO> resultado = this.repository.getAllInscripciones();
         return Response
             .status(Response.Status.CREATED)
             .entity(resultado)

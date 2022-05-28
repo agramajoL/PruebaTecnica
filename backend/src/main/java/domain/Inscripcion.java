@@ -11,6 +11,8 @@ import domain.services.CarnetOtrosGeneroCualquieraEstrategia;
 import domain.services.IFechaDeclamacionEstrategia;
 import lombok.Getter;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 /**
  *
@@ -23,18 +25,18 @@ public class Inscripcion {
     @Getter
     String generoPoesia;
     @Getter
-    DateTime fechaInscripcion;
+    String fechaInscripcion;
     @Getter
-    DateTime fechaDeclamacion;
+    String fechaDeclamacion;
 
     public Inscripcion(Estudiante estudiante, String generoPoesia) {
         this.estudiante = estudiante;
         this.generoPoesia = generoPoesia;
-        this.fechaInscripcion = new DateTime();
+        this.fechaInscripcion = new DateTime().toString("d/M/Y");
         this.fechaDeclamacion = this.calcularFechaDeclamacion(this.estudiante.getCarnet(), this.generoPoesia);
     }
 
-    DateTime calcularFechaDeclamacion(String carnet, String generoPoesia) {
+    String calcularFechaDeclamacion(String carnet, String generoPoesia) {
         IFechaDeclamacionEstrategia contexto;
         if (carnet.endsWith("1") && generoPoesia.equals(GenerosPoesia.DRAMATICO.toString())) {
             contexto = new Carnet1GeneroDramaticoEstrategia();
@@ -43,7 +45,11 @@ public class Inscripcion {
         } else {
             contexto = new CarnetOtrosGeneroCualquieraEstrategia();
         }
+        DateTimeFormatter format = DateTimeFormat.forPattern("dd/MM/yyyy");
 
-        return contexto.calcularFechaDeclamacion(fechaInscripcion);
+        DateTime fInscripcion = format.parseDateTime(this.fechaInscripcion);
+        DateTime fDeclamacion = contexto.calcularFechaDeclamacion(fInscripcion);
+        return format.print(fDeclamacion);
+
     }
 }

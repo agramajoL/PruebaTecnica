@@ -5,7 +5,7 @@
  */
 package application.repository;
 
-import application.DTO.InscripcionDTO;
+import application.DTO.InscripcionViewDTO;
 import domain.Inscripcion;
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface IInscripcionRepository {
 
-    public void registrarInscripcion(Inscripcion inscripcion);
+    public boolean registrarInscripcion(Inscripcion inscripcion);
 
-    public List<InscripcionDTO> getAllInscripciones();
+    public List<InscripcionViewDTO> getAllInscripciones();
 }

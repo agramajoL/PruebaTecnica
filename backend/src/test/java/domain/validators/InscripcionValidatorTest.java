@@ -15,7 +15,6 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.not;
-import org.joda.time.DateTime;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.Test;
 
@@ -30,7 +29,7 @@ public class InscripcionValidatorTest {
 
     @Test
     public void generoPoesiaDebeSerValido() {
-        Estudiante estudianteValido = new Estudiante("Ab5ee1", "Alvaro Gramajo", "direccion tal", "Masculino", new DateTime(1998, 1, 13, 0, 0), "Ingenieria en Sistemas");
+        Estudiante estudianteValido = new Estudiante("Ab5ee1", "Alvaro Gramajo", "direccion tal", "Masculino", "13/01/1998", "Ingenieria en Sistemas", 12344321);
         Inscripcion inscripcion = new Inscripcion(estudianteValido, "Fantasia");
         InscripcionValidator iv = new InscripcionValidator();
         ValidationResult result = iv.validate(inscripcion);

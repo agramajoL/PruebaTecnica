@@ -7,13 +7,15 @@ package application.commands;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.joda.time.DateTime;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
  * @author Leo
  */
 @AllArgsConstructor
+@NoArgsConstructor
 public class RegistrarInscripcionCommand {
 
     /**
@@ -22,17 +24,29 @@ public class RegistrarInscripcionCommand {
      * compatibilidad solamente se cambia el DTO.
      */
     @Getter
+    @Setter
     private String carnet;
     @Getter
+    @Setter
     private String nombre;
     @Getter
+    @Setter
     private String direccion;
     @Getter
+    @Setter
     private String genero;
     @Getter
-    private DateTime fechaNacimiento;
+    @Setter
+    private String fechaNacimiento;
     @Getter
+    @Setter
     private String carrera;
     @Getter
+    @Setter
+    private int telefono;
+
+    @Getter
+    @Setter
     private String generoPoesia;
+
 }

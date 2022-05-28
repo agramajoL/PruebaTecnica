@@ -26,6 +26,7 @@ public class RegistrarInscripcionCommandMapper {
             iDTO.getEstudiante().getGenero(),
             iDTO.getEstudiante().getFechaNacimiento(),
             iDTO.getEstudiante().getCarrera(),
+            iDTO.getEstudiante().getTelefono(),
             iDTO.getGeneroPoesia()
         );
 
@@ -39,7 +40,8 @@ public class RegistrarInscripcionCommandMapper {
             cmd.getDireccion(),
             cmd.getGenero(),
             cmd.getFechaNacimiento(),
-            cmd.getCarrera()
+            cmd.getCarrera(),
+            cmd.getTelefono()
         );
         Inscripcion inscripcion = new Inscripcion(estudiante, cmd.getGeneroPoesia());
 
@@ -53,7 +55,8 @@ public class RegistrarInscripcionCommandMapper {
             i.getEstudiante().getDireccion(),
             i.getEstudiante().getGenero(),
             i.getEstudiante().getFechaNacimiento(),
-            i.getEstudiante().getCarrera()
+            i.getEstudiante().getCarrera(),
+            i.getEstudiante().getTelefono()
         );
 
         InscripcionViewDTO ivDTO = new InscripcionViewDTO(eDTO,

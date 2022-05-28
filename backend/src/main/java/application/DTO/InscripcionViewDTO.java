@@ -7,7 +7,6 @@ package application.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.joda.time.DateTime;
 
 /**
  *
@@ -21,8 +20,8 @@ public class InscripcionViewDTO {
     @Getter
     private String generoPoesia;
     @Getter
-    private DateTime fechaInscripcion;
+    private String fechaInscripcion;
     @Getter
-    private DateTime fechaDeclamacion;
+    private String fechaDeclamacion;
 
 }

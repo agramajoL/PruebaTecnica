@@ -14,6 +14,8 @@ import static br.com.fluentvalidator.predicate.StringPredicate.stringSize;
 import static br.com.fluentvalidator.predicate.StringPredicate.stringSizeLessThanOrEqual;
 import domain.Estudiante;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 /**
  *
@@ -61,8 +63,12 @@ public class EstudianteValidator extends AbstractValidator<Estudiante> {
 
     //Si es mayor de edad es regla del dominio pero no se debe permitir crear
     //modelos del dominio invalidos.
-    private boolean esMayorDeEdad(final DateTime fechaNacimiento) {
-        int yearNacimiento = fechaNacimiento.getYear();
+    private boolean esMayorDeEdad(final String fechaNacimiento) {
+        DateTimeFormatter format = DateTimeFormat.forPattern("dd/MM/yyyy");
+
+        DateTime f = format.parseDateTime(fechaNacimiento);
+
+        int yearNacimiento = f.getYear();
         int yearActual = new DateTime().getYear();
         int edad = yearActual - yearNacimiento;
         return edad > 17;
