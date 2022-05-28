@@ -52,7 +52,7 @@ public class InscripcionRepositoryOracle implements IInscripcionRepository {
             //ResultSet rs = ps.executeQuery();
 
             result = ps.execute();
-            conn.commit();
+            //conn.commit();
         } catch (SQLException sqlException) {
             Logger.getLogger(InscripcionRepositoryOracle.class.getName())
                 .log(Level.SEVERE, null, sqlException);
