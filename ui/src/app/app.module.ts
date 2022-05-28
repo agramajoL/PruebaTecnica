@@ -26,6 +26,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatFormFieldModule,
     MatTableModule
   ],
+  exports: [
+    MatFormFieldModule,
+    MatTableModule
+  ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

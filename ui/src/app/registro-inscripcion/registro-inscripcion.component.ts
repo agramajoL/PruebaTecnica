@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-
+import { InscripcionViewDTO } from '../InscripcionViewDTO';
 @Component({
   selector: 'app-registro-inscripcion',
   templateUrl: './registro-inscripcion.component.html',
@@ -37,17 +37,4 @@ export class RegistroInscripcionComponent implements OnInit {
     
   }
 
-}
-
-interface InscripcionViewDTO{
-  carnet: String,
-  nombre: String,
-  carrera: String,
-  genero: String,
-  telefono: number,
-  direccion: String,
-  fechaNacimiento: String,
-  fechaInscripcion: String,
-  fechaDeclamacion: String,
-  generoPoesia: String
 }
