@@ -1,0 +1,40 @@
+<form [formGroup]="registroInscripcionForm" (ngSubmit)="onSubmit()">
+   
+
+    <label for="carnet">Carnet</label>    
+    <input type="text" id="carnet" formControlName="carnet">  
+    
+       
+    <label for="nombre">Nombre completo</label>    
+    <input type="text" id="nombre" formControlName="nombre">
+
+
+    <label for="carrera">Carrera</label>    
+    <input type="text" id="carrera" formControlName="carrera">
+
+
+    <label for="telefono">Telefono</label>    
+    <input type="text" id="telefono" formControlName="telefono">
+
+
+    <label for="direccion">Direccion</label>    
+    <input type="text" id="direccion" formControlName="direccion">
+
+
+
+
+    <label for="genero">Genero</label>    
+    <select type="text" id="genero" formControlName="genero">
+        <option *ngFor="let genero of generos" [value]="genero">{{genero}}</option>
+    </select>
+    <label for="fechaNacimiento">Fecha Nacimiento</label>    
+    <input type="text" id="fechaNacimiento" formControlName="fechaNacimiento">
+
+
+
+    <label for="generoPoesia">Genero Poesia</label>    
+    <select type="text" id="generoPoesia" formControlName="generoPoesia">
+    <option *ngFor="let poesia of generosPoesia" [value]="poesia">{{poesia}}</option>
+    </select>
+    <input type="submit" [disabled]="!registroInscripcionForm.valid" value="Registrarse">
+</form>
