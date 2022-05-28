@@ -1,4 +1,4 @@
-package exx.backend.resources;
+package application.controllers;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
