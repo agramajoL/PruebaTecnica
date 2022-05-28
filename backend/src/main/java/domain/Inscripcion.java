@@ -5,6 +5,10 @@
  */
 package domain;
 
+import domain.services.Carnet1GeneroDramaticoEstrategia;
+import domain.services.Carnet3GeneroEpicoEstrategia;
+import domain.services.CarnetOtrosGeneroCualquieraEstrategia;
+import domain.services.IFechaDeclamacionEstrategia;
 import org.joda.time.DateTime;
 
 /**
@@ -22,6 +26,19 @@ public class Inscripcion {
         this.estudiante = estudiante;
         this.generoPoesia = generoPoesia;
         this.fechaInscripcion = new DateTime();
+        this.fechaDeclamacion = this.calcularFechaDeclamacion(this.estudiante.carnet, this.generoPoesia);
+    }
 
+    DateTime calcularFechaDeclamacion(String carnet, String generoPoesia) {
+        IFechaDeclamacionEstrategia contexto;
+        if (carnet.endsWith("1") && generoPoesia.equals(GenerosPoesia.DRAMATICO.toString())) {
+            contexto = new Carnet1GeneroDramaticoEstrategia();
+        } else if (carnet.endsWith("3") && generoPoesia.equals(GenerosPoesia.EPICO.toString())) {
+            contexto = new Carnet3GeneroEpicoEstrategia();
+        } else {
+            contexto = new CarnetOtrosGeneroCualquieraEstrategia();
+        }
+
+        return contexto.calcularFechaDeclamacion(fechaInscripcion);
     }
 }
