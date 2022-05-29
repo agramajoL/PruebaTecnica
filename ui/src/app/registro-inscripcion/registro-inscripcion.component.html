@@ -24,8 +24,8 @@
 
   <mat-form-field hintLabel="Solo 8 digitos" appearance="fill">
     <mat-label for="telefono">Telefono</mat-label>    
-    <input matInput #input type="text" id="telefono" formControlName="telefono">
-    <mat-hint align="end">{{input.value?.length || 0}}/8</mat-hint>
+    <input matInput #input2 maxlength="8" type="text" id="telefono" formControlName="telefono">
+    <mat-hint align="end">{{input2.value?.length || 0}}/8</mat-hint>
  </mat-form-field>     
 
 
@@ -42,7 +42,7 @@
     </mat-select>
 </mat-form-field>
 
-<mat-form-field appearance="fill">
+<mat-form-field hintLabel="Formato: DD/MM/YYYY" appearance="fill">
  <mat-label for="fechaNacimiento">Fecha Nacimiento</mat-label>    
     <input matInput type="text" id="fechaNacimiento" formControlName="fechaNacimiento">
 </mat-form-field>
