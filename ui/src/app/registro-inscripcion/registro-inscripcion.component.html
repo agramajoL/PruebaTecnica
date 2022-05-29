@@ -1,40 +1,57 @@
 <form [formGroup]="registroInscripcionForm" (ngSubmit)="onSubmit()">
-   
+<p>Todos los campos son obligatorios</p>   
+<mat-form-field matTooltip="Carnet debe iniciar con a o A.
+ No debe contener 0. El tercer caracter debe ser 5 y el ultimo caracter puede ser 1,3 o 9" hintLabel="Max 6 caracteres alfanumericos" appearance="fill">
 
-    <label for="carnet">Carnet</label>    
-    <input type="text" id="carnet" formControlName="carnet">  
+    <mat-label for="carnet">Carnet</mat-label>    
+    <input matInput #input maxlength="6" type="text" id="carnet" formControlName="carnet">  
+    <mat-hint align="end">{{input.value?.length || 0}}/6</mat-hint>
     
-       
-    <label for="nombre">Nombre completo</label>    
-    <input type="text" id="nombre" formControlName="nombre">
+</mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label for="nombre">Nombre completo</mat-label>    
+    <input matInput type="text" id="nombre" formControlName="nombre">
+ </mat-form-field>     
+
+  <mat-form-field appearance="fill">
+
+    <mat-label for="direccion">Direccion</mat-label>    
+    <input matInput type="text" id="direccion" formControlName="direccion">
+
+ </mat-form-field>     
 
 
-    <label for="carrera">Carrera</label>    
-    <input type="text" id="carrera" formControlName="carrera">
+  <mat-form-field hintLabel="Solo 8 digitos" appearance="fill">
+    <mat-label for="telefono">Telefono</mat-label>    
+    <input matInput #input type="text" id="telefono" formControlName="telefono">
+    <mat-hint align="end">{{input.value?.length || 0}}/8</mat-hint>
+ </mat-form-field>     
 
 
-    <label for="telefono">Telefono</label>    
-    <input type="text" id="telefono" formControlName="telefono">
+  <mat-form-field appearance="fill">
+    <mat-label for="carrera">Carrera</mat-label>    
+    <input matInput type="text" id="carrera" formControlName="carrera">
+ </mat-form-field>     
 
 
-    <label for="direccion">Direccion</label>    
-    <input type="text" id="direccion" formControlName="direccion">
+<mat-form-field appearance="fill">
+        <mat-label for="genero">Genero</mat-label>    
+    <mat-select type="text" id="genero" formControlName="genero">
+        <mat-option *ngFor="let genero of generos" [value]="genero">{{genero}}</mat-option>
+    </mat-select>
+</mat-form-field>
 
-
-
-
-    <label for="genero">Genero</label>    
-    <select type="text" id="genero" formControlName="genero">
-        <option *ngFor="let genero of generos" [value]="genero">{{genero}}</option>
-    </select>
-    <label for="fechaNacimiento">Fecha Nacimiento</label>    
-    <input type="text" id="fechaNacimiento" formControlName="fechaNacimiento">
-
-
-
-    <label for="generoPoesia">Genero Poesia</label>    
-    <select type="text" id="generoPoesia" formControlName="generoPoesia">
-    <option *ngFor="let poesia of generosPoesia" [value]="poesia">{{poesia}}</option>
-    </select>
+<mat-form-field appearance="fill">
+ <mat-label for="fechaNacimiento">Fecha Nacimiento</mat-label>    
+    <input matInput type="text" id="fechaNacimiento" formControlName="fechaNacimiento">
+</mat-form-field>
+   
+<mat-form-field appearance="fill">
+    <mat-label for="generoPoesia">Genero Poesia</mat-label>    
+    <mat-select type="text" id="generoPoesia" formControlName="generoPoesia">
+    <mat-option *ngFor="let poesia of generosPoesia" [value]="poesia">{{poesia}}</mat-option>
+    </mat-select>
+</mat-form-field>
     <input type="submit" [disabled]="!registroInscripcionForm.valid" value="Registrarse">
 </form>

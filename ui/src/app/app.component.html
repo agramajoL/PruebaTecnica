@@ -1,13 +1,17 @@
-<header>
-  <nav>
-    <ul>
-      <li><a routerLink="/listado" routerLinkActive="active">Listado</a></li>
-      
-      <li><a routerLink="/registro" routerLinkActive="active">Registro</a></li>
-    </ul>
-  </nav>
-</header>
 
-<div ngClass="'myBody'">
-<router-outlet></router-outlet>
+    <mat-toolbar>
+  <header>
+    <nav>
+      <ul>
+        <li><button mat-raised-button color="accent" routerLink="/listado" routerLinkActive="active">Listado</button></li>
+        
+        <li><button routerLink="/registro" routerLinkActive="active">Registro</button></li>
+      </ul>
+    </nav>
+  </header>
+
+    </mat-toolbar>
+
+  <div ngClass="'myBody'">
+  <router-outlet></router-outlet>
 </div>

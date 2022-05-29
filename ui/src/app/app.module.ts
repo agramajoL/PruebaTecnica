@@ -11,6 +11,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table'; 
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select'; 
+import {MatTooltipModule} from '@angular/material/tooltip'; 
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatGridListModule} from '@angular/material/grid-list'; 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +33,11 @@ import { MatInputModule } from '@angular/material/input';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatToolbarModule,
+    MatGridListModule
   ],
   exports: [
     MatFormFieldModule,
