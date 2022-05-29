@@ -59,6 +59,9 @@ public class EstudianteValidator extends AbstractValidator<Estudiante> {
             .must(this::esMayorDeEdad)
             .when(not(nullValue()))
             .withMessage("Debe ser mayor a 17 anios.");
+
+        ruleFor(Estudiante::getTelefono)
+            .must(this::esTelefonoValido);
     }
 
     //Si es mayor de edad es regla del dominio pero no se debe permitir crear
@@ -72,5 +75,9 @@ public class EstudianteValidator extends AbstractValidator<Estudiante> {
         int yearActual = new DateTime().getYear();
         int edad = yearActual - yearNacimiento;
         return edad > 17;
+    }
+
+    private boolean esTelefonoValido(final int telefono) {
+        return telefono > 10000000 && telefono < 999999999;
     }
 }

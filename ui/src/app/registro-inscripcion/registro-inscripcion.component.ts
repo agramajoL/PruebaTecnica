@@ -16,7 +16,8 @@ export class RegistroInscripcionComponent implements OnInit {
     direccion: ['', [Validators.required, Validators.maxLength(200)]],
     genero: ['', [Validators.required]],
     fechaNacimiento: ['', [Validators.required]],
-    telefono: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
+    telefono: ['', [Validators.required, Validators.pattern("^[1-9][0-9]{7}$")]],
+
     generoPoesia: ['', [Validators.required]]
   });
   constructor(private fb: FormBuilder,

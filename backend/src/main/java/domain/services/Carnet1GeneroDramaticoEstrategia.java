@@ -25,12 +25,19 @@ public class Carnet1GeneroDramaticoEstrategia implements IFechaDeclamacionEstrat
 
         int add5Days = 5;
         while (add5Days != 0) {
-            if (fechaInscripcion.getDayOfWeek() == DateTimeConstants.FRIDAY) {
-                fechaInscripcion = fechaInscripcion.plusDays(3);
-
-            } else {
-                fechaInscripcion = fechaInscripcion.plusDays(1);
+            switch (fechaInscripcion.getDayOfWeek()) {
+                case DateTimeConstants.FRIDAY:
+                    fechaInscripcion = fechaInscripcion.plusDays(2);
+                    break;
+                case DateTimeConstants.SATURDAY:
+                    fechaInscripcion = fechaInscripcion.plusDays(1);
+                    break;
+//                case DateTimeConstants.SUNDAY:
+//                    fechaInscripcion = fechaInscripcion.plusDays(1);
+//                    break;
             }
+
+            fechaInscripcion = fechaInscripcion.plusDays(1);
 
             add5Days--;
         }

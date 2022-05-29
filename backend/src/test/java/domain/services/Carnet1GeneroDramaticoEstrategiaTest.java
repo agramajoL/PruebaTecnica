@@ -37,4 +37,22 @@ public class Carnet1GeneroDramaticoEstrategiaTest {
 
     }
 
+    @Test
+    void testInscripcionSabadoDeclamacionSiguienteViernes() {
+        DateTime fechaInscripcion = new DateTime(2022, 5, 28, 0, 0);
+
+        DateTime proximoViernes = new DateTime(2022, 6, 3, 0, 0);
+        Assertions.assertEquals(proximoViernes, c.calcularFechaDeclamacion(fechaInscripcion));
+
+    }
+
+    @Test
+    void testInscripcionDomingoDeclamacionSiguienteViernes() {
+
+        DateTime fechaInscripcion = new DateTime(2022, 5, 29, 0, 0);
+
+        DateTime proximoViernes = new DateTime(2022, 6, 3, 0, 0);
+        Assertions.assertEquals(proximoViernes, c.calcularFechaDeclamacion(fechaInscripcion));
+
+    }
 }

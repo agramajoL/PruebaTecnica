@@ -76,7 +76,7 @@ public class InscripcionRepositoryOracle implements IInscripcionRepository {
 
     @Override
     public List<InscripcionViewDTO> getAllInscripciones() {
-        String sql = "SELECT CARNET, NOMBRE, DIRECCION, GENERO, TELEFONO, FECHA_NACIMIENTO, FECHA_INSCRIPCION, FECHA_DECLAMACION, GENERO_POESIA, CARRERA FROM INSCRIPCION";
+        String sql = "SELECT CARNET, NOMBRE, DIRECCION, GENERO, TELEFONO, TO_CHAR(FECHA_NACIMIENTO, 'DD/MM/YYYY') as fecha_nacimiento, TO_CHAR(FECHA_INSCRIPCION, 'DD/MM/YYYY') AS FECHA_INSCRIPCION, TO_CHAR(FECHA_DECLAMACION, 'DD/MM/YYYY') AS FECHA_DECLAMACION, GENERO_POESIA, CARRERA FROM INSCRIPCION";
         List<InscripcionViewDTO> resultados = new ArrayList<>();
         Connection conn = null;
         PreparedStatement ps = null;
